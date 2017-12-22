@@ -8,3 +8,5 @@
 /obj/mini-blog.csproj.nuget.g.props
 /obj/mini-blog.csproj.nuget.g.targets
 /obj/project.assets.json
+/.vscode/launch.json
+/.vscode/tasks.json

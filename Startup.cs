@@ -5,6 +5,7 @@ namespace mini_blog
 {
     using System;
     using System.Globalization;
+    using System.IO;
     using Microsoft.AspNetCore;
     using Microsoft.AspNetCore.Authentication.Cookies;
     using Microsoft.AspNetCore.Builder;
@@ -38,6 +39,7 @@ namespace mini_blog
         public static IWebHost BuildWebHost(string[] args)
         {
             return WebHost.CreateDefaultBuilder(args)
+                .UseContentRoot(Directory.GetCurrentDirectory())
                 .UseStartup<Startup>()
                 .UseKestrel(a => a.AddServerHeader = false)
                 .Build();
@@ -102,6 +104,7 @@ namespace mini_blog
                 app.UseDeveloperExceptionPage();
             }
 
+            app.UseStaticFiles();
             app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
             app.UseWebOptimizer();
 
